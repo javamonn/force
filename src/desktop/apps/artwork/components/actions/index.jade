@@ -22,6 +22,11 @@
       class='js-artwork-view-in-room analytics-artwork-view-in-room'
     ): i.icon-frame
 
+  a.artwork-action.artwork-action--visual-similarity(
+    data-message="Find Visually Similar Works"
+    href="/visually-similar/#{artwork.id}"
+  ): i.icon-search
+
   if user && user.isAdmin()
     .artwork-actions__admin
       a(
