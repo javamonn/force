@@ -1,41 +1,64 @@
 /* tslint:disable */
 
-import { ConcreteFragment } from 'relay-runtime'
+import { ConcreteFragment } from "relay-runtime";
 export type FollowArtistButton_artist = {
-  readonly __id: string
-  readonly id: string
-  readonly is_followed: boolean | null
-}
+    readonly __id: string;
+    readonly id: string;
+    readonly is_followed: boolean | null;
+    readonly counts: ({
+        readonly follows: any | null;
+    }) | null;
+};
+
+
 
 const node: ConcreteFragment = {
-  kind: 'Fragment',
-  name: 'FollowArtistButton_artist',
-  type: 'Artist',
-  metadata: null,
-  argumentDefinitions: [],
-  selections: [
+  "kind": "Fragment",
+  "name": "FollowArtistButton_artist",
+  "type": "Artist",
+  "metadata": null,
+  "argumentDefinitions": [],
+  "selections": [
     {
-      kind: 'ScalarField',
-      alias: null,
-      name: '__id',
-      args: null,
-      storageKey: null,
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "__id",
+      "args": null,
+      "storageKey": null
     },
     {
-      kind: 'ScalarField',
-      alias: null,
-      name: 'id',
-      args: null,
-      storageKey: null,
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "id",
+      "args": null,
+      "storageKey": null
     },
     {
-      kind: 'ScalarField',
-      alias: null,
-      name: 'is_followed',
-      args: null,
-      storageKey: null,
+      "kind": "ScalarField",
+      "alias": null,
+      "name": "is_followed",
+      "args": null,
+      "storageKey": null
     },
-  ],
-}
-;(node as any).hash = '872d90fb3feb3ba8549b783b1b5b5643'
-export default node
+    {
+      "kind": "LinkedField",
+      "alias": null,
+      "name": "counts",
+      "storageKey": null,
+      "args": null,
+      "concreteType": "ArtistCounts",
+      "plural": false,
+      "selections": [
+        {
+          "kind": "ScalarField",
+          "alias": null,
+          "name": "follows",
+          "args": null,
+          "storageKey": null
+        }
+      ]
+    }
+  ]
+};
+(node as any).hash = '3d95f3ba8843502253efacc9c5d3d5f9';
+export default node;
