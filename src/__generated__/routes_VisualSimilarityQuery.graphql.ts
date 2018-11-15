@@ -16,6 +16,7 @@ query routes_VisualSimilarityQuery(
 ) {
   artwork(id: $artworkID) {
     ...OriginArtwork_artwork
+    ...SimilarArtworkGridQueryRenderer_artwork
     __id
   }
 }
@@ -25,6 +26,11 @@ fragment OriginArtwork_artwork on Artwork {
   images {
     image_url
   }
+  __id
+}
+
+fragment SimilarArtworkGridQueryRenderer_artwork on Artwork {
+  id
   __id
 }
 */
@@ -58,7 +64,7 @@ return {
   "operationKind": "query",
   "name": "routes_VisualSimilarityQuery",
   "id": null,
-  "text": "query routes_VisualSimilarityQuery(\n  $artworkID: String!\n) {\n  artwork(id: $artworkID) {\n    ...OriginArtwork_artwork\n    __id\n  }\n}\n\nfragment OriginArtwork_artwork on Artwork {\n  id\n  images {\n    image_url\n  }\n  __id\n}\n",
+  "text": "query routes_VisualSimilarityQuery(\n  $artworkID: String!\n) {\n  artwork(id: $artworkID) {\n    ...OriginArtwork_artwork\n    ...SimilarArtworkGridQueryRenderer_artwork\n    __id\n  }\n}\n\nfragment OriginArtwork_artwork on Artwork {\n  id\n  images {\n    image_url\n  }\n  __id\n}\n\nfragment SimilarArtworkGridQueryRenderer_artwork on Artwork {\n  id\n  __id\n}\n",
   "metadata": {},
   "fragment": {
     "kind": "Fragment",
@@ -79,6 +85,11 @@ return {
           {
             "kind": "FragmentSpread",
             "name": "OriginArtwork_artwork",
+            "args": null
+          },
+          {
+            "kind": "FragmentSpread",
+            "name": "SimilarArtworkGridQueryRenderer_artwork",
             "args": null
           },
           v2
@@ -132,5 +143,5 @@ return {
   }
 };
 })();
-(node as any).hash = 'be1320acee7b7a848c9b259174bf11a5';
+(node as any).hash = 'ff002004d777422cf4b5f0a6d6023140';
 export default node;

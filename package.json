@@ -11,7 +11,8 @@
     "acceptance-record": "scripts/acceptance_record.sh",
     "assets": "scripts/assets.sh",
     "bundle-report": "NODE_ENV=production ANALYZE_BUNDLE=true webpack",
-    "debug:prod": "NODE_ENV=production node -r dotenv/config --max_old_space_size=1024 ./src --verbose --debugProd",
+    "debug:prod":
+      "NODE_ENV=production node -r dotenv/config --max_old_space_size=1024 ./src --verbose --debugProd",
     "mocha": "scripts/mocha.sh",
     "precommit": "lint-staged",
     "prepare": "patch-package",
@@ -22,8 +23,12 @@
     "relay": "node scripts/relayCompiler.js",
     "sentry": "scripts/sentry.sh",
     "start": "scripts/start.sh",
-    "start:relay": "yarn relay && concurrently --raw --kill-others 'yarn relay --watch' 'yarn start'",
-    "sync-schema": "rm -rf data && mkdir data && graphql-fetch-schema https://metaphysics-staging.artsy.net -o data",
+    "start:relay":
+      "yarn relay && concurrently --raw --kill-others 'yarn relay --watch' 'yarn start'",
+    "sync-schema":
+      "rm -rf data && mkdir data && graphql-fetch-schema https://metaphysics-staging.artsy.net -o data",
+    "sync-schema:localhost":
+      "rm -rf data && mkdir data && graphql-fetch-schema http://localhost:5001 -o data",
     "test": "scripts/test.sh",
     "type-check": "tsc --pretty --noEmit",
     "webpack": "webpack"
@@ -35,19 +40,20 @@
     "trailingComma": "es5"
   },
   "lint-staged": {
-    "*.@(js|jsx|ts|tsx)": [
-      "npm run prettier-write --",
-      "git add"
-    ]
+    "*.@(js|jsx|ts|tsx)": ["npm run prettier-write --", "git add"]
   },
   "resolutions": {
     "babel-core": "^7.0.0-0",
     "graphql": "^0.13.2",
     "moment": "^2.22.2",
-    "babel-plugin-relay": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/babel-plugin-relay-1.5.0-artsy.5.tgz",
-    "relay-compiler": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-compiler-1.5.0-artsy.5.tgz",
-    "relay-runtime": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-runtime-1.5.0-artsy.5.tgz",
-    "react-relay": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/react-relay-1.5.0-artsy.5.tgz"
+    "babel-plugin-relay":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/babel-plugin-relay-1.5.0-artsy.5.tgz",
+    "relay-compiler":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-compiler-1.5.0-artsy.5.tgz",
+    "relay-runtime":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-runtime-1.5.0-artsy.5.tgz",
+    "react-relay":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/react-relay-1.5.0-artsy.5.tgz"
   },
   "dependencies": {
     "@artsy/express-reloadable": "^1.3.1",
@@ -87,7 +93,8 @@
     "babel-plugin-inline-react-svg": "^0.2.0",
     "babel-plugin-lodash": "^3.3.2",
     "babel-plugin-module-resolver": "^3.0.0",
-    "babel-plugin-relay": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/babel-plugin-relay-1.5.0-artsy.5.tgz",
+    "babel-plugin-relay":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/babel-plugin-relay-1.5.0-artsy.5.tgz",
     "babel-plugin-styled-components": "^1.5.0",
     "backbone": "^1.2.3",
     "backbone-pageable": "^1.4.8",
@@ -184,7 +191,8 @@
     "react-dom": "^16.5.0",
     "react-hot-loader": "4.3.11",
     "react-redux": "^5.0.2",
-    "react-relay": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/react-relay-1.5.0-artsy.5.tgz",
+    "react-relay":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/react-relay-1.5.0-artsy.5.tgz",
     "react-router": "^4.2.0",
     "react-router-redux": "^4.0.8",
     "react-scrollspy": "^3.3.3",
@@ -196,9 +204,11 @@
     "redux-mock-store": "^1.2.2",
     "redux-thunk": "^2.2.0",
     "referer-parser": "0.0.3",
-    "relay-compiler": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-compiler-1.5.0-artsy.5.tgz",
+    "relay-compiler":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-compiler-1.5.0-artsy.5.tgz",
     "relay-compiler-language-typescript": "^0.9.0",
-    "relay-runtime": "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-runtime-1.5.0-artsy.5.tgz",
+    "relay-runtime":
+      "https://github.com/alloy/relay/releases/download/v1.5.0-artsy.5/relay-runtime-1.5.0-artsy.5.tgz",
     "sailthru-client": "^3.0.0",
     "scroll-frame": "^1.0.0",
     "serve-favicon": "^2.3.0",
@@ -301,24 +311,14 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.coffee$": "<rootDir>/node_modules/jest-coffee-preprocessor/index.js",
+      "^.+\\.coffee$":
+        "<rootDir>/node_modules/jest-coffee-preprocessor/index.js",
       ".(ts|tsx|js|jsx)": "babel-jest"
     },
-    "moduleFileExtensions": [
-      "coffee",
-      "js",
-      "json",
-      "jsx",
-      "ts",
-      "tsx"
-    ],
+    "moduleFileExtensions": ["coffee", "js", "json", "jsx", "ts", "tsx"],
     "testRegex": "/__tests__/.*\\.jest\\.(ts|tsx|js|jsx)$",
-    "setupFiles": [
-      "<rootDir>/test.config.js"
-    ],
-    "roots": [
-      "<rootDir>/src"
-    ],
+    "setupFiles": ["<rootDir>/test.config.js"],
+    "roots": ["<rootDir>/src"],
     "testURL": "https://artsy.net"
   }
 }
