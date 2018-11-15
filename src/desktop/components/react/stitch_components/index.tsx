@@ -5,6 +5,9 @@ export {
 export {
   ReactionArtworkDetails as ArtworkDetails,
 } from "./ReactionArtworkDetails"
+export {
+  ReactionArtworkVisuallySimilar as ArtworkVisuallySimilar,
+} from "./ReactionArtworkVisuallySimilar"
 export { ReactionArtworkGrid as ArtworkGrid } from "./ReactionArtworkGrid"
 export { ReactionFillwidth as Fillwidth } from "./ReactionFillwidth"
 export {
