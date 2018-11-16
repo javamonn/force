@@ -6,7 +6,7 @@ module.exports = (options = {}) ->
 
   modal = modalize view,
     className: 'modalize visually-similar-modal'
-    dimensions: width: '1024px'
+    dimensions: width: '100%'
 
   modal.open()
   modal
